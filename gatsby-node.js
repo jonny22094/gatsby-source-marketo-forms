@@ -10,7 +10,7 @@ async function authenticate(authUrl) {
     const res = await fetch(authUrl, {});
 
     if (res.ok) {
-      const {access_token} = res.json();
+      const {access_token} = await res.json();
 
       return access_token
     } else {
