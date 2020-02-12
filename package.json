@@ -1,0 +1,31 @@
+{
+  "name": "gatsby-source-marketo-forms",
+  "version": "0.0.2",
+  "description": "Fetch marketo forms data to gatsby project",
+  "main": "index.js",
+  "author": "jonny22094",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc index.ts"
+  },
+  "dependencies": {
+    "gatsby-node-helpers": "^0.3.0",
+    "node-fetch": "^2.6.0",
+    "query-string": "^6.10.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonny22094/gatsby-source-marketo-forms.git"
+  },
+  "keywords": [
+    "marketo",
+    "marketo-forms",
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "bugs": {
+    "url": "https://github.com/jonny22094/gatsby-source-marketo-forms/issues"
+  },
+  "homepage": "https://github.com/jonny22094/gatsby-source-marketo-forms#readme"
+}
