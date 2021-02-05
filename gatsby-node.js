@@ -18,16 +18,16 @@ async function authenticate(authUrl) {
     }
 }
 
-exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
+exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions;
-  const { munchkinId, clientId, clientSecret } = configOptions;
+  const { munchkinId, clientId, clientSecret, maxReturn } = configOptions;
   const authOptions = queryString.stringify({
     grant_type: 'client_credentials',
     client_id: clientId,
     client_secret: clientSecret
   });
 
-  const formsApiUrl = `https://${munchkinId}.mktorest.com/rest/asset/v1/forms.json`;
+  const formsApiUrl = `https://${munchkinId}.mktorest.com/rest/asset/v1/forms.json${maxReturn ? `?${maxReturn}` : ''}`;
   const authUrl = `https://${munchkinId}.mktorest.com/identity/oauth/token?${authOptions}`;
 
   try {
@@ -35,7 +35,7 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
 
     const forms = await fetch(formsApiUrl, {
       headers: { Authorization: `Bearer ${accessToken}` }
-    }).then(response => response.json());
+    }).then(res => res.json());
 
     async function fetchFormFields(id) {
       const url = `https://${munchkinId}.mktorest.com/rest/asset/v1/form/${id}/fields.json`;

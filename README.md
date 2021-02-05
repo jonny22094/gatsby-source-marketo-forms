@@ -19,9 +19,10 @@ Plugin to fetch forms data from marketo platform and create a gatsby data query
   {
     resolve: 'gatsby-source-marketo',
     options: {
-      munchkinId: '<MUNCHKIN_ID_KEY>',
+      munchkinId: MUNCHKIN_ID_KEY,
       clientId: 'CLIENT_ID_KEY',
-      clientSecret: CLIENT_SECRET_KEY'
+      clientSecret: CLIENT_SECRET_KEY',
+      maxReturn: Specify how many forms should be returned (optional, type: number)
     }
   }
   ```
