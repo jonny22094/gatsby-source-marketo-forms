@@ -27,7 +27,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     client_secret: clientSecret
   });
 
-  const formsApiUrl = `https://${munchkinId}.mktorest.com/rest/asset/v1/forms.json${maxReturn ? `?${maxReturn}` : ''}`;
+  const formsApiUrl = `https://${munchkinId}.mktorest.com/rest/asset/v1/forms.json${maxReturn ? `?maxReturn=${maxReturn}` : ''}`;
   const authUrl = `https://${munchkinId}.mktorest.com/identity/oauth/token?${authOptions}`;
 
   try {
